@@ -73,7 +73,7 @@
     .gdg-intro{position:fixed;inset:0;z-index:9999;display:flex;flex-direction:column;align-items:center;justify-content:center;background:#0c1220;overflow:hidden;transition:opacity .6s ease,transform .6s ease}
     .gdg-intro.hide{opacity:0;pointer-events:none;transform:scale(1.04)}
     .gdg-intro-bg{position:absolute;inset:0;overflow:hidden}
-    .gdg-intro-content{padding:0 20px;text-align:center}
+    .gdg-intro-content{width:100%;max-width:100%;padding:0 20px;text-align:center}
     .gdg-intro-bg .ring{position:absolute;border-radius:50%;border:1px solid rgba(255,255,255,.06);top:50%;left:50%;transform:translate(-50%,-50%)}
     .gdg-intro-bg .ring:nth-child(1){width:340px;height:340px}
     .gdg-intro-bg .ring:nth-child(2){width:560px;height:560px}
@@ -85,10 +85,11 @@
     .gdg-dot.d-red  {background:#ea4335;right:0;top:50%;margin-top:-14px}
     .gdg-dot.d-yellow{background:#fbbc05;bottom:0;left:50%;margin-left:-14px}
     .gdg-dot.d-green {background:#34a853;left:0;top:50%;margin-top:-14px}
-    .gdg-wordmark{opacity:0;transform:translateY(12px);display:flex;flex-direction:column;align-items:center;gap:6px}
-    .gdg-wordmark-top{font-family:"Google Sans",Inter,sans-serif;font-size:2.1rem;font-weight:700;letter-spacing:-.03em;color:#fff;line-height:1}
+    .gdg-wordmark{opacity:0;transform:translateY(12px);display:flex;flex-direction:column;align-items:center;gap:6px;width:100%;max-width:100%}
+    .gdg-wordmark-top{font-family:"Google Sans",Inter,sans-serif;font-size:clamp(1.35rem,7vw,2.1rem);font-weight:700;letter-spacing:-.03em;color:#fff;line-height:1.1;max-width:100%}
+    .gdg-wordmark-top .w-sub{color:rgba(255,255,255,.6);font-weight:400;font-size:.66em}
     .gdg-wordmark-top .w-blue{color:#4285f4}.gdg-wordmark-top .w-red{color:#ea4335}.gdg-wordmark-top .w-yellow{color:#fbbc05}.gdg-wordmark-top .w-green{color:#34a853}
-    .gdg-wordmark-sub{font-size:.78rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.45)}
+    .gdg-wordmark-sub{font-size:clamp(.58rem,2.6vw,.78rem);font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.45);max-width:100%;overflow-wrap:break-word;line-height:1.5}
     .gdg-intro-bar{width:0;height:3px;border-radius:99px;background:linear-gradient(90deg,#4285f4,#ea4335,#fbbc05,#34a853);margin-top:8px}
     /* ── GDG Loader (events overlay) ────────────────────────────────── */
     .gdg-loader{position:fixed;inset:0;z-index:300;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:24px;background:var(--bg);opacity:0;visibility:hidden;transition:opacity .35s}
@@ -133,7 +134,7 @@
       .about-art{min-height:300px;padding:20px}
       .code-window{top:40px;padding:15px;font-size:.72rem;line-height:1.75;overflow-wrap:anywhere}
       .faq button{gap:10px;font-size:.95rem;align-items:flex-start}
-      .faq button i{flex:0 0 auto;margin-top:3px}.section-head h2{font-size:1.85rem}.stat strong{font-size:2.1rem}.events-hero h1{font-size:1.95rem}.events-filters{gap:7px}.filter-chip{font-size:.75rem;padding:7px 12px}.footer-note{max-width:100%}.copyright{font-size:.72rem}.gdg-wordmark-top{font-size:1.6rem}.gdg-wordmark-sub{font-size:.68rem;letter-spacing:.1em}.gdg-dots-ring{width:96px;height:96px}.gdg-dot{width:22px;height:22px}.gdg-dot.d-blue,.gdg-dot.d-yellow{margin-left:-11px}.gdg-dot.d-red,.gdg-dot.d-green{margin-top:-11px}.gdg-intro-content{gap:26px}.top{right:14px;bottom:14px}.brand{font-size:.92rem;gap:7px;white-space:normal;min-width:0}.brand:before{flex:0 0 36px;width:36px;height:22px}.navbar{gap:10px}.navbar>*{min-width:0}}
+      .faq button i{flex:0 0 auto;margin-top:3px}.section-head h2{font-size:1.85rem}.stat strong{font-size:2.1rem}.events-hero h1{font-size:1.95rem}.events-filters{gap:7px}.filter-chip{font-size:.75rem;padding:7px 12px}.footer-note{max-width:100%}.copyright{font-size:.72rem}.gdg-dots-ring{width:96px;height:96px}.gdg-dot{width:22px;height:22px}.gdg-dot.d-blue,.gdg-dot.d-yellow{margin-left:-11px}.gdg-dot.d-red,.gdg-dot.d-green{margin-top:-11px}.gdg-intro-content{gap:26px}.top{right:14px;bottom:14px}.brand{font-size:.92rem;gap:7px;white-space:normal;min-width:0}.brand:before{flex:0 0 36px;width:36px;height:22px}.navbar{gap:10px}.navbar>*{min-width:0}}
     @media (prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
   </style>
 </head>
@@ -163,7 +164,7 @@
       <div class="gdg-wordmark" id="gdgWordmark">
         <div class="gdg-wordmark-top">
           <span class="w-blue">G</span><span class="w-red">D</span><span class="w-yellow">G</span>
-          <span style="color:rgba(255,255,255,.6);font-weight:400;font-size:1.4rem"> on Campus </span>
+          <span class="w-sub"> on Campus </span>
           <span class="w-green">PCE</span>
         </div>
         <div class="gdg-wordmark-sub">Pillai College of Engineering · Navi Mumbai</div>
