@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="GDG on Campus at Pillai College of Engineering — build, learn, and connect in Navi Mumbai." />
+  <title>GDG on Campus PCE — Build. Learn. Connect.</title>
+  <meta name="theme-color" content="#4285f4" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#0c1220" media="(prefers-color-scheme: dark)" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="GDG on Campus PCE" />
+  <meta property="og:title" content="GDG on Campus PCE — Build. Learn. Connect." />
+  <meta property="og:description" content="GDG on Campus at Pillai College of Engineering — build, learn, and connect in Navi Mumbai." />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="GDG on Campus PCE — Build. Learn. Connect." />
+  <meta name="twitter:description" content="GDG on Campus at Pillai College of Engineering — build, learn, and connect in Navi Mumbai." />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%2318212f'/%3E%3Ccircle cx='36' cy='36' r='13' fill='%234285f4'/%3E%3Ccircle cx='64' cy='36' r='13' fill='%23ea4335'/%3E%3Ccircle cx='36' cy='64' r='13' fill='%23fbbc05'/%3E%3Ccircle cx='64' cy='64' r='13' fill='%2334a853'/%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.2/anime.min.js"></script>
+  <style>
+    :root { --blue:#4285f4; --red:#ea4335; --yellow:#fbbc05; --green:#34a853; --ink:#18212f; --muted:#64748b; --bg:#f8faff; --surface:#fff; --line:#e6eaf2; --shadow:0 18px 45px rgba(26,48,85,.10); --nav:rgba(255,255,255,.72); }
+    [data-theme="dark"] { --ink:#edf3ff; --muted:#aab7cb; --bg:#0c1220; --surface:#131c2d; --line:#26344c; --shadow:0 18px 48px rgba(0,0,0,.3); --nav:rgba(12,18,32,.72); }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; scroll-padding-top:88px; }
+    body { margin:0; color:var(--ink); background:var(--bg); font-family:Inter,Arial,sans-serif; overflow-x:hidden; transition:background .35s,color .35s; }
+    h1,h2,h3,p { margin-top:0; } h1,h2,h3 { font-family:"Google Sans",Inter,sans-serif; letter-spacing:-.035em; }
+    a { color:inherit; text-decoration:none; } button { font:inherit; } img { max-width:100%; display:block; }
+    :focus-visible { outline:3px solid var(--yellow); outline-offset:4px; }
+    .progress { position:fixed; z-index:200; top:0; left:0; width:0; height:4px; background:linear-gradient(90deg,var(--blue),var(--red),var(--yellow),var(--green)); }
+    .container { width:min(1160px,calc(100% - 40px)); margin:auto; }
+    .section { padding:112px 0; position:relative; }
+    .eyebrow { color:var(--blue); font-size:.78rem; text-transform:uppercase; letter-spacing:.12em; font-weight:800; margin-bottom:12px; }
+    .section-head { max-width:660px; margin-bottom:48px; } .section-head h2 { font-size:clamp(2rem,4vw,3.2rem); margin-bottom:14px; } .section-head p { color:var(--muted); line-height:1.7; }
+    .nav-wrap { position:fixed; inset:0 0 auto; z-index:100; transition:.3s; }
+    .navbar { height:76px; display:flex; align-items:center; justify-content:space-between; gap:20px; }
+    .nav-wrap.scrolled { background:var(--nav); backdrop-filter:blur(18px); border-bottom:1px solid var(--line); box-shadow:0 4px 22px rgba(10,20,40,.04); }
+    .brand { display:flex; align-items:center; gap:10px; font-family:"Google Sans"; font-weight:700; font-size:1.1rem; white-space:nowrap; }
+    .brand-logo, .brand-mark { display:none; }
+    .brand:before { content:""; flex:0 0 46px; width:46px; height:28px; border-radius:5px; background:url("data:image/png;base64,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") center / cover no-repeat; }
+    .brand-mark { width:34px; height:34px; position:relative; border:7px solid var(--blue); border-right-color:var(--green); border-bottom-color:var(--yellow); border-radius:50%; transform:rotate(-35deg); } .brand-mark:after { content:""; position:absolute; width:17px; height:7px; background:var(--red); right:-12px; top:8px; border-radius:8px; }
+    .nav-links { display:flex; align-items:center; gap:26px; font-size:.86rem; font-weight:600; } .nav-links a { position:relative; } .nav-links a:after { content:""; position:absolute; left:0; bottom:-7px; width:0; height:2px; background:var(--blue); transition:.25s; } .nav-links a:hover:after { width:100%; } .nav-links a.active { color:var(--blue); } .nav-links a.active:after { width:100%; }
+    .brand { transition:transform .2s; } .brand-pop { animation:brandPop .6s ease; } @keyframes brandPop { 0%{transform:scale(1)} 30%{transform:scale(1.13) rotate(-5deg)} 60%{transform:scale(.97)} 100%{transform:scale(1)} }
+    .theme-btn,.menu-btn { border:0; color:var(--ink); background:transparent; cursor:pointer; width:38px; height:38px; border-radius:50%; display:grid; place-items:center; transition:.2s; } .theme-btn:hover,.menu-btn:hover { background:color-mix(in srgb,var(--blue) 12%,transparent); }
+    .menu-btn { display:none; font-size:1.15rem; }
+    .hero { min-height:760px; padding:150px 0 90px; display:flex; align-items:center; overflow:hidden; isolation:isolate; }
+    .hero-particles { position:absolute; inset:0; z-index:-1; pointer-events:none; }
+    .hero:before { content:""; position:absolute; inset:0; z-index:-3; background:radial-gradient(circle at 12% 20%,rgba(66,133,244,.16),transparent 26%),radial-gradient(circle at 84% 70%,rgba(52,168,83,.14),transparent 25%),var(--bg); }
+    .blob { position:absolute; z-index:-2; filter:blur(2px); opacity:.8; border-radius:48% 52% 42% 58% / 58% 42% 58% 42%; } .blob.one { width:420px;height:420px;right:-100px;top:90px;background:linear-gradient(130deg,rgba(66,133,244,.28),rgba(234,67,53,.16)); } .blob.two { width:280px;height:280px;left:-100px;bottom:-55px;background:linear-gradient(130deg,rgba(251,188,5,.22),rgba(52,168,83,.2)); }
+    .hero-grid { display:flex; flex-direction:column; align-items:center; text-align:center; width:100%; }
+    .hero-copy { max-width:840px; margin:auto; } .pill { display:inline-flex; align-items:center; gap:8px; padding:8px 13px; color:var(--blue); background:rgba(66,133,244,.11); border:1px solid rgba(66,133,244,.16); border-radius:99px; font-weight:700; font-size:.78rem; } .pill i { color:var(--red); }
+    .hero h1 { font-size:clamp(3.6rem,7vw,6.4rem); line-height:.99; margin:22px 0; } .hero h1 span { display:block; } .c-blue{color:var(--blue)}.c-red{color:var(--red)}.c-yellow{color:var(--yellow)}.c-green{color:var(--green)}
+    .hero-text { font-size:1.08rem; color:var(--muted); line-height:1.8; max-width:600px; min-height:60px; margin:0 auto; }
+    .hero-chips { display:flex; flex-wrap:wrap; justify-content:center; gap:11px; margin-top:28px; }
+    .hero-chips span { display:inline-flex; align-items:center; gap:8px; padding:9px 15px; background:var(--surface); border:1px solid var(--line); border-radius:99px; font-size:.8rem; font-weight:700; box-shadow:0 8px 20px rgba(26,48,85,.07); }
+    .hero-chips i { color:var(--blue); } .hero-chips span:nth-child(2) i { color:var(--red); } .hero-chips span:nth-child(3) i { color:var(--green); }
+    .actions { display:flex; flex-wrap:wrap; justify-content:center; gap:14px; margin-top:30px; } .btn { position:relative; overflow:hidden; display:inline-flex; justify-content:center; align-items:center; gap:10px; min-height:51px; border-radius:13px; padding:0 21px; border:1px solid transparent; cursor:pointer; font-weight:700; transition:transform .2s,box-shadow .2s,background .2s; } .btn:hover{transform:translateY(-3px);box-shadow:0 13px 23px rgba(66,133,244,.22)} .btn-primary { color:#fff;background:var(--blue); } .btn-secondary{background:var(--surface);color:var(--ink);border-color:var(--line)} .ripple { position:absolute; border-radius:50%; background:rgba(255,255,255,.45); transform:scale(0); animation:ripple .6s linear; pointer-events:none; } @keyframes ripple{to{transform:scale(4);opacity:0}}
+    .hero-visual { position:relative; min-height:430px; } .orbit { position:absolute; inset:27px; border:1px dashed color-mix(in srgb,var(--blue) 30%,transparent); border-radius:50%; } .orbit:after { content:""; position:absolute; top:20%; right:-5px; width:14px;height:14px;background:var(--yellow);border-radius:50%; }
+    .hero-card { position:absolute; inset:76px 24px 35px; padding:26px; border:1px solid rgba(255,255,255,.55); background:linear-gradient(140deg,rgba(255,255,255,.78),rgba(255,255,255,.43)); backdrop-filter:blur(17px); border-radius:28px; box-shadow:var(--shadow); color:#1d2939; transform:rotate(-5deg); } [data-theme="dark"] .hero-card { background:linear-gradient(140deg,rgba(25,37,60,.9),rgba(21,30,48,.58)); color:var(--ink); border-color:rgba(255,255,255,.11); }
+    .event-mini { display:flex; justify-content:space-between; align-items:flex-start; } .event-mini small { color:#60708a;font-weight:700;letter-spacing:.08em; } [data-theme="dark"] .event-mini small{color:var(--muted)} .event-mini h3{font-size:1.75rem;margin:9px 0 4px}.badge { padding:8px 10px; color:var(--green);background:#e7f6eb;border-radius:9px;font-weight:800;font-size:.74rem; } .mini-art { height:144px; margin-top:24px; position:relative; overflow:hidden; border-radius:17px; background:linear-gradient(135deg,#dcecff,#fff5d6); } .mini-art:before,.mini-art:after{content:"";position:absolute;border-radius:50%}.mini-art:before{width:170px;height:170px;background:var(--blue);right:18px;bottom:-95px}.mini-art:after{width:95px;height:95px;background:var(--red);left:35px;top:21px;box-shadow:121px 36px 0 -20px var(--yellow),62px 65px 0 -12px var(--green)} .floating { position:absolute; z-index:3; padding:12px 15px; background:var(--surface); border:1px solid var(--line); box-shadow:var(--shadow); border-radius:14px; font-size:.8rem;font-weight:800; } .floating i{margin-right:6px;color:var(--blue)}.float-one{right:-4px;top:52px}.float-two{left:-8px;bottom:15px}.float-two i{color:var(--red)}
+    .about-grid { display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:center; } .about-art { min-height:390px; border-radius:28px; padding:30px; position:relative; overflow:hidden; background:linear-gradient(135deg,#eaf1ff,#fff6df); } .about-art:before{content:"";position:absolute;width:270px;height:270px;border-radius:50%;background:var(--blue);right:-80px;top:-70px}.about-art:after{content:"";position:absolute;width:180px;height:180px;border-radius:46% 54% 60% 40%;background:var(--yellow);left:-60px;bottom:-45px}.code-window{position:relative;z-index:1;top:67px;background:rgba(255,255,255,.85);padding:19px;border-radius:16px;box-shadow:0 20px 40px rgba(66,87,130,.19);font-family:monospace;color:#334155;line-height:1.9;font-size:.84rem}.dots{display:flex;gap:6px;margin-bottom:12px}.dots b{width:9px;height:9px;border-radius:50%;background:var(--red)}.dots b:nth-child(2){background:var(--yellow)}.dots b:nth-child(3){background:var(--green)}
+    .benefits { display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:28px }.benefit { padding:17px;border:1px solid var(--line);background:var(--surface);border-radius:15px;transition:.25s }.benefit:hover{transform:translateY(-5px);box-shadow:var(--shadow)}.benefit i{font-size:1.15rem;color:var(--blue);margin-bottom:11px}.benefit:nth-child(2) i{color:var(--red)}.benefit:nth-child(3) i{color:var(--yellow)}.benefit:nth-child(4) i{color:var(--green)}.benefit h3{margin:0 0 6px;font-size:1rem}.benefit p{margin:0;font-size:.79rem;color:var(--muted);line-height:1.5}
+    .tracks { background:color-mix(in srgb,var(--surface) 70%,var(--bg)); }.tracks-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.track{padding:25px;border:1px solid var(--line);background:var(--surface);border-radius:20px;transition:.3s;position:relative;overflow:hidden}.track:before{content:"";position:absolute;width:130px;height:130px;right:-65px;bottom:-65px;background:var(--accent);opacity:.12;border-radius:50%;transition:.3s}.track:hover{transform:translateY(-8px) scale(1.015);box-shadow:0 18px 35px color-mix(in srgb,var(--accent) 21%,transparent)}.track:hover:before{transform:scale(1.5)}.track-icon{width:48px;height:48px;border-radius:14px;background:color-mix(in srgb,var(--accent) 13%,transparent);display:grid;place-items:center;color:var(--accent);font-size:1.4rem}.track h3{margin:22px 0 7px;font-size:1.3rem}.track p{color:var(--muted);font-size:.86rem;line-height:1.6;margin:0}
+    .stats { padding:70px 0; background:linear-gradient(105deg,#eef4ff,#fff7e4,#eef9f1); } [data-theme="dark"] .stats{background:linear-gradient(105deg,#17233c,#2a2519,#14261d)} .stats-grid{display:grid;grid-template-columns:repeat(4,1fr);text-align:center}.stat{padding:15px;border-right:1px solid rgba(100,116,139,.2)}.stat:last-child{border:0}.stat strong{font-family:"Google Sans";display:block;font-size:3.05rem;letter-spacing:-.07em;color:var(--blue)}.stat:nth-child(2) strong{color:var(--red)}.stat:nth-child(3) strong{color:#de9d00}.stat:nth-child(4) strong{color:var(--green)}.stat span{font-size:.86rem;font-weight:700;color:var(--muted)}
+    .event-archive { background:color-mix(in srgb,var(--surface) 70%,var(--bg)); }.archive-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}.archive-card{position:relative;display:flex;flex-direction:column;overflow:hidden;background:var(--surface);border:1px solid var(--line);border-radius:20px;box-shadow:0 8px 24px rgba(20,32,55,.05);transition:transform .3s,box-shadow .3s,border-color .3s}.archive-card:before{content:"";position:absolute;top:0;left:0;right:0;height:4px;background:var(--accent,var(--blue));transform:scaleX(0);transform-origin:left;transition:transform .4s ease;z-index:3}.archive-card:hover{transform:translateY(-9px);border-color:color-mix(in srgb,var(--accent,var(--blue)) 45%,var(--line));box-shadow:0 24px 42px color-mix(in srgb,var(--accent,var(--blue)) 20%,transparent)}.archive-card:hover:before{transform:scaleX(1)}.archive-thumb{position:relative;overflow:hidden}.archive-thumb img{width:100%;aspect-ratio:1.6;object-fit:cover;background:#17233c;display:block;transition:transform .6s ease}.archive-card:hover .archive-thumb img{transform:scale(1.07)}.archive-thumb:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(9,16,30,.6));pointer-events:none}.archive-date{position:absolute;left:12px;bottom:12px;z-index:2;display:inline-flex;align-items:center;gap:6px;padding:6px 11px;border-radius:10px;background:rgba(255,255,255,.94);color:#1d2939;font-size:.72rem;font-weight:800}.archive-date i{color:var(--accent,var(--blue))}.archive-body{padding:17px 18px 19px;display:flex;flex-direction:column;flex:1}.archive-tag{align-self:flex-start;display:inline-flex;align-items:center;gap:6px;color:var(--accent,var(--green));background:color-mix(in srgb,var(--accent,var(--green)) 13%,transparent);padding:5px 10px;border-radius:99px;font-size:.66rem;font-weight:800;text-transform:uppercase;letter-spacing:.06em;margin-bottom:11px}.archive-body h3{font-size:1.18rem;line-height:1.18;margin:0 0 9px}.archive-body p{color:var(--muted);font-size:.82rem;line-height:1.6;margin:0 0 16px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}.event-link{margin-top:auto;color:var(--accent,var(--blue));font-weight:800;font-size:.82rem;display:inline-flex;align-items:center}.event-link i{margin-left:6px;transition:.2s}.event-link:hover i{transform:translateX(4px)}.archive-actions{text-align:center;margin-top:36px}.archive-count{display:block;color:var(--muted);font-size:.83rem;margin-bottom:14px}@media(max-width:900px){.archive-grid{grid-template-columns:repeat(2,1fr)}}@media(max-width:560px){.archive-grid{grid-template-columns:1fr}}
+    /* ── GDG Intro Overlay ─────────────────────────────────────────── */
+    .gdg-intro{position:fixed;inset:0;z-index:9999;display:flex;flex-direction:column;align-items:center;justify-content:center;background:#0c1220;overflow:hidden;transition:opacity .6s ease,transform .6s ease}
+    .gdg-intro.hide{opacity:0;pointer-events:none;transform:scale(1.04)}
+    .gdg-intro-bg{position:absolute;inset:0;overflow:hidden}
+    .gdg-intro-bg .ring{position:absolute;border-radius:50%;border:1px solid rgba(255,255,255,.06);top:50%;left:50%;transform:translate(-50%,-50%)}
+    .gdg-intro-bg .ring:nth-child(1){width:340px;height:340px}
+    .gdg-intro-bg .ring:nth-child(2){width:560px;height:560px}
+    .gdg-intro-bg .ring:nth-child(3){width:800px;height:800px}
+    .gdg-intro-content{position:relative;display:flex;flex-direction:column;align-items:center;gap:36px}
+    .gdg-dots-ring{position:relative;width:120px;height:120px}
+    .gdg-dot{position:absolute;width:28px;height:28px;border-radius:50%;opacity:0;transform:scale(0)}
+    .gdg-dot.d-blue {background:#4285f4;top:0;left:50%;margin-left:-14px}
+    .gdg-dot.d-red  {background:#ea4335;right:0;top:50%;margin-top:-14px}
+    .gdg-dot.d-yellow{background:#fbbc05;bottom:0;left:50%;margin-left:-14px}
+    .gdg-dot.d-green {background:#34a853;left:0;top:50%;margin-top:-14px}
+    .gdg-wordmark{opacity:0;transform:translateY(12px);display:flex;flex-direction:column;align-items:center;gap:6px}
+    .gdg-wordmark-top{font-family:"Google Sans",Inter,sans-serif;font-size:2.1rem;font-weight:700;letter-spacing:-.03em;color:#fff;line-height:1}
+    .gdg-wordmark-top .w-blue{color:#4285f4}.gdg-wordmark-top .w-red{color:#ea4335}.gdg-wordmark-top .w-yellow{color:#fbbc05}.gdg-wordmark-top .w-green{color:#34a853}
+    .gdg-wordmark-sub{font-size:.78rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.45)}
+    .gdg-intro-bar{width:0;height:3px;border-radius:99px;background:linear-gradient(90deg,#4285f4,#ea4335,#fbbc05,#34a853);margin-top:8px}
+    /* ── GDG Loader (events overlay) ────────────────────────────────── */
+    .gdg-loader{position:fixed;inset:0;z-index:300;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:24px;background:var(--bg);opacity:0;visibility:hidden;transition:opacity .35s}
+    .gdg-loader.show{opacity:1;visibility:visible}
+    .gdg-loader-dots{display:flex;gap:14px}
+    .gdg-loader-dots span{width:22px;height:22px;border-radius:50%;animation:gdgBounce 1s infinite ease-in-out}
+    .gdg-loader-dots span:nth-child(1){background:var(--blue)}
+    .gdg-loader-dots span:nth-child(2){background:var(--red);animation-delay:.12s}
+    .gdg-loader-dots span:nth-child(3){background:var(--yellow);animation-delay:.24s}
+    .gdg-loader-dots span:nth-child(4){background:var(--green);animation-delay:.36s}
+    @keyframes gdgBounce{0%,75%,100%{transform:translateY(0) scale(1)}35%{transform:translateY(-26px) scale(1.12)}}
+    .gdg-loader p{color:var(--muted);font-weight:700;letter-spacing:.04em;font-size:.9rem}
+    .events-page{position:fixed;inset:0;z-index:250;background:var(--bg);overflow-y:auto;opacity:0;visibility:hidden;transform:translateY(24px);transition:opacity .4s ease,transform .4s ease}
+    .events-page.show{opacity:1;visibility:visible;transform:none}
+    .events-top{position:sticky;top:0;z-index:2;background:var(--nav);backdrop-filter:blur(18px);border-bottom:1px solid var(--line)}
+    .events-top-inner{display:flex;align-items:center;justify-content:space-between;gap:16px;height:72px}
+    .events-back{display:inline-flex;align-items:center;gap:9px;padding:10px 16px;border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:12px;font-weight:700;font-size:.85rem;cursor:pointer;transition:transform .2s,border-color .2s}
+    .events-back:hover{transform:translateX(-3px);border-color:color-mix(in srgb,var(--blue) 45%,var(--line))}
+    .events-hero{padding:56px 0 24px}
+    .events-hero h1{font-size:clamp(2.3rem,5vw,3.8rem);margin:12px 0}
+    .events-hero>p{color:var(--muted);line-height:1.7;max-width:620px}
+    .events-filters{display:flex;flex-wrap:wrap;gap:10px;margin:26px 0 12px}
+    .filter-chip{padding:9px 16px;border:1px solid var(--line);background:var(--surface);color:var(--muted);border-radius:99px;font-weight:700;font-size:.82rem;cursor:pointer;transition:color .2s,border-color .2s,background .2s}
+    .filter-chip:hover{color:var(--ink);border-color:color-mix(in srgb,var(--blue) 40%,var(--line))}
+    .filter-chip.active{background:var(--blue);border-color:var(--blue);color:#fff}
+    #eventsPageGrid{padding-bottom:72px}
+    .speakers-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:17px}.speaker{background:var(--surface);border:1px solid var(--line);border-radius:19px;overflow:hidden;transition:.3s}.speaker:hover{transform:translateY(-8px);box-shadow:var(--shadow)}.speaker-img{height:245px;overflow:hidden;background:#dce6fa}.speaker-img img{width:100%;height:100%;object-fit:cover;transition:.5s}.speaker:hover img{transform:scale(1.08)}.speaker-body{padding:17px}.speaker-body h3{font-size:1.13rem;margin:0 0 5px}.speaker-body p{color:var(--muted);font-size:.78rem;margin:0 0 13px}.socials{display:flex;gap:12px}.socials a{font-size:.87rem;color:var(--blue);transition:.2s}.socials a:hover{transform:translateY(-2px);color:var(--red)}
+    .timeline{background:color-mix(in srgb,var(--surface) 72%,var(--bg))}.timeline-list{position:relative;max-width:840px;margin:auto}.timeline-list:before{content:"";position:absolute;left:50%;top:0;bottom:0;width:3px;background:var(--line);transform:translateX(-50%)}.timeline-item{position:relative;width:50%;padding:0 48px 44px;text-align:right}.timeline-item:nth-child(even){margin-left:50%;text-align:left}.dot{position:absolute;right:-9px;top:4px;width:20px;height:20px;border:4px solid var(--bg);border-radius:50%;background:var(--blue);box-shadow:0 0 0 2px var(--blue);z-index:1}.timeline-item:nth-child(even) .dot{left:-10px;right:auto;background:var(--red);box-shadow:0 0 0 2px var(--red)}.timeline-card{padding:16px;border:1px solid var(--line);border-radius:14px;background:var(--surface);transition:.25s}.timeline-card:hover{box-shadow:var(--shadow);transform:scale(1.03)}.timeline-card time{font-size:.75rem;font-weight:800;color:var(--blue)}.timeline-card h3{font-size:1.1rem;margin:6px 0}.timeline-card p{color:var(--muted);font-size:.82rem;line-height:1.5;margin:0}
+    .gallery-grid{display:grid;grid-template-columns:1.1fr 1fr 1fr;grid-auto-rows:190px;gap:14px}.gallery-item{position:relative;border-radius:17px;overflow:hidden;background:#d6e2f5}.gallery-item:first-child{grid-row:span 2}.gallery-item:nth-child(4){grid-column:span 2}.gallery-item img{width:100%;height:100%;object-fit:cover;transition:.55s}.gallery-item:after{content:"View moment  ↗";position:absolute;inset:0;display:flex;align-items:end;padding:18px;color:#fff;font-weight:700;font-size:.85rem;background:linear-gradient(transparent,rgba(0,0,0,.6));opacity:0;transition:.3s}.gallery-item:hover img{transform:scale(1.08)}.gallery-item:hover:after{opacity:1}
+    .faq-wrap{max-width:820px;margin:auto}.faq{border-bottom:1px solid var(--line)}.faq button{width:100%;color:var(--ink);border:0;background:none;display:flex;justify-content:space-between;gap:18px;text-align:left;padding:22px 0;cursor:pointer;font-size:1rem;font-weight:700}.faq i{color:var(--blue);transition:.3s}.faq.open i{transform:rotate(45deg)}.faq-answer{max-height:0;overflow:hidden;transition:max-height .35s ease}.faq-answer p{color:var(--muted);line-height:1.7;margin:0;padding:0 0 20px}.faq.open .faq-answer{max-height:180px}
+    footer{padding:70px 0 22px;background:#101827;color:#ecf3ff} .footer-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:50px;padding-bottom:55px}.footer-grid .brand{color:#fff}.footer-note{color:#b0bdd2;line-height:1.7;font-size:.85rem;max-width:340px;margin:18px 0}.footer-title{font-family:"Google Sans";font-size:1rem;margin:0 0 18px}.footer-links{display:grid;gap:11px;color:#bcc9de;font-size:.85rem}.footer-links a:hover{color:#fff}.footer-social{display:flex;gap:10px}.footer-social a{width:36px;height:36px;border-radius:50%;background:#26344a;display:grid;place-items:center;transition:.2s}.footer-social a:hover{background:var(--blue);transform:translateY(-3px)}.copyright{border-top:1px solid #26344a;padding-top:21px;color:#91a1ba;font-size:.78rem;display:flex;justify-content:space-between;gap:20px}.top{position:fixed;right:22px;bottom:22px;z-index:50;width:45px;height:45px;border:0;border-radius:13px;background:var(--blue);color:#fff;box-shadow:0 12px 26px rgba(66,133,244,.32);cursor:pointer;opacity:0;visibility:hidden;transform:translateY(15px);transition:.25s}.top.show{opacity:1;visibility:visible;transform:none}
+    .reveal{opacity:0;transform:translateY(28px)}
+    @media (max-width:900px){.nav-links{gap:16px}.hero-grid,.about-grid{grid-template-columns:1fr;gap:45px}.hero{padding-top:130px;min-height:auto}.about-art{max-width:520px;width:100%;margin:auto}.tracks-grid{grid-template-columns:repeat(2,1fr)}.footer-grid{grid-template-columns:1.5fr 1fr}}
+    @media (max-width:680px){.container{width:min(100% - 32px,1160px)}.section{padding:75px 0}.menu-btn{display:grid}.nav-links{position:absolute;top:76px;left:16px;right:16px;padding:17px;background:var(--surface);border:1px solid var(--line);border-radius:17px;box-shadow:var(--shadow);display:grid;gap:6px;transform:translateY(-12px);opacity:0;visibility:hidden;transition:.25s}.nav-links.open{transform:none;opacity:1;visibility:visible}.nav-links a{padding:8px}.hero h1{font-size:3.65rem}.hero-visual{min-height:360px}.hero-card{inset:60px 18px 25px}.float-one{right:-4px}.tracks-grid{grid-template-columns:1fr}.stats-grid{grid-template-columns:1fr 1fr;gap:25px}.stat{border:0}.stat strong{font-size:2.6rem}.speakers-grid{grid-template-columns:1fr 1fr;gap:12px}.speaker-img{height:190px}.timeline-list:before{left:9px;transform:none}.timeline-item,.timeline-item:nth-child(even){width:100%;margin:0;padding:0 0 31px 36px;text-align:left}.dot,.timeline-item:nth-child(even) .dot{left:0;right:auto}.gallery-grid{grid-template-columns:1fr 1fr;grid-auto-rows:150px}.gallery-item:first-child{grid-row:span 2}.gallery-item:nth-child(4){grid-column:auto}.footer-grid{grid-template-columns:1fr;gap:32px}.copyright{flex-direction:column}.benefits{gap:10px}}
+    @media (prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
+  </style>
+</head>
+<body>
+  <div class="progress" aria-hidden="true"></div>
+  <header class="nav-wrap" id="home"><nav class="navbar container" aria-label="Main navigation"><a class="brand" href="#home" aria-label="GDG on Campus PCE home"><img class="brand-logo" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMsAAABNCAYAAAAIEpD2AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAA1gSURBVHhe7V1tcFNVGn7em5Qk9CNtpWkLbUVooXy0IK7IVlzXxQ8UZNn1Bxb0nw6u66yuMPbPDtMFnVEHFHZknVV3ZmdWCjjjjgqz4y7rzmzFOpaP1bY6Cq1CP0nKlqY0bVKSe/fHuTcfN/emaZrbps15Bnj6nDe5522SN+/7nnMSyE4VEiSEQADXXHMdrQVIQChaJPkP11xzrdZkR4Vi4eDgiAFBPcDBwaENgYjYTwpxzTXXmpqXYRwccUIIhhBnzpxjMs8sHBxxQu5ZSK7NOHPmrMc8s3BwxIlQZoEqkrjmmusITXYsYduUILZjGcEK1OPczu3pZxeIAIBABBY9ERoqze3cnsb2yMyiB27ndm4PZRZ5mOnQXbmd27md2eXMwsHBMR4ol5ZKkCQWQko24hrbii1B3TUaQJdPQteoqHv7RDXdWxAad/oguXyA06t7e66nT/PMosKhyrmoyc1AqTXyQHbToB/Hr4yhafAGurxihC0R0AYHTLUlIIclYlxy+RA42g2p1Q24fBE2jumFnFmUCEpf3lY8BweXzlU/PlHYf9mL9/rG0OUTNa8TD5teXA6qylFfOgKSywfxaDektiHA6dO8DuepZZMV8+pjRQuB5E+KzU77nbkZOFg5F0+WRL7D66Em1wy3X0TTYCCu66vtpmfLIazLV182CpRphrAuH3RLJsQ2N+Bh8413fTVze/LssTOLAvX4LLG/vyoLNbnmsBvGj7VfDIXKMZ3rB6FohwXmt28NM8QP8ZN+iMe6WWmmd32uDdUmC+bVh6zpwbsXWvC31dlRfclE4PZLaBq8oXl9PTZtKQJV2dWXigu0KBPClmKILh8kj18303A2jmNnllnGNXYzDlbOnVSQKGga9OORL4c159HjeHqVeCC1DkE83g2pZUhzHs7GsPztLmxgtnKJVcD7q7Lw/uqspASKAvU843GyQFU5ML24HKaXlgMFlqh5OBvDAuQzMCC2tDzb9K5brDizLifh3iQWtOaLpeWHPWmgqhyY37kVptoSoNASNR/XydWRmUVSRdQM1tsK56D5jhzsvtkKI9A06I85v5YW29zqyyQFQm0JyzI/YxucevNzPTk963qWmjwzdt1sNSSTKOjyilj7xZDm/LFYlALIeOc2kMOYAAZYPxM41AH0h62acU4KR2QW9mjPXH2wcu6kloPjxfErY5rzx6PFT1yywRgopZnwm8WAgx3ZieUP1/FrlllmOLYVxbf7ngzsv+zFgUte9XBckCBCkkSYastgqi1Tmw1B4A8dkFqH+NGZJIBysVSStLNOCjLbBGR1I1Ax14zdC23Y6pij+rWMwS+/HMbng34Nv+JnCWx/RNhQCFNtqaElmQKpdQjisW6IrUNR/nCOn01WmldPYCpVGRCDLzL2l2HghoiT/T50e0WszDLBbk7esnA4jl8Zw33nrqPby04dq/2bKAMSpB88ED/qBRwWUJYZlGlc6UiFFggbCkAOC6RLIyBPQNMvzuNwLlK7DBODQTI+DlVm4c7cDJRaTWpTQmga9OPAJS+aBv1q06QgQQxmSQCgKjvMj5YlvLs/UQQO8dIsEVAuVcotDGkknullCQFIEntRWfIXoGzjTljzFwSdd7efgbP5BHwDPcGxmtwMbCuy4NGixMubLq+I574bnfBxlomwBEn+3aTgvFRlh/nZiikpzUpdAxj5aw+cjSOa/nGO5pTOLCLYO3rF9r0oXPtztTkIZ/OH6Pz4T1FB84fKrAlnmf2XEm/gEwHLMpL8hDCYassgbHBMSdA8ePkCzr05hN5vkps9ZyNUmUVBKmhAlPyoeubPsJf/KMymj4sNezDYfjYiaB4tsmL3Qtu4QXP8yhgOXPbJJ4m1/DFOK6tkyu8NAHBYYaothWlDYWjMIKy41IOvXuoPK8ti+5uu2mTFvPqwUdWNpk9LEFG2cWfMjKLGTVX3YF7VTxEYHYan5zsAQNuwH291e1FqFWA3U9QiQNOgH899O4K3u30Y8qsfJEyJJgAEIdLm8UP6YgBimxtCld3QBYD+3Bw8WHQVFxvHNP3jWv4pjypTcukYEFHz+vkwpycGd/tZdH78JtztZ4NjpVYTdi+0BfuZ574bxXtXxjTnn04WEYCknLWQYfRSc7E4gq6dF0AuX5Q/nBlTLlKzwV9ZUoqc3R+on9MJQ6ufKZ9rQscIe0dXz5s6jKhVM6U0E6rshgTNTftbecMfg01WmlcPkheTU4jXrtuA0YqfqJ/PCSNrQSUW3L0DAOAd6ENg9DoGbkiA/CIkIs35p58JRAJAgvxkhUoz6QcPBIcVVJjcgFk5+j90N4/p+MOZBYv8XABgxhTQSxYtw+iSyQeLAnv57cF+xj86jMDodQBS8J1b6Rz0/JkuTUTR/YzLB/HfLkguH2hRZtL6mXnf9qPvXNi5N0T7k87aZKOCehB7UkBgL5oU0AU5dmD1pjCvJw+zLQc3Vd2DrAVL4RvohW+gV7awfQ9Q6AM+an+mWwsk4K5VY6govQF/gOD2CEk/BWD5Zx8GO+Td/XH8SUct9yypic0vncRAZpF6OGlwt5/FhYY9Ef0Me3hM7EFKEZQV+nF411Wsr2b7P5+2WPDyu9k43RL6RprJngKQXF74n/ivnMU4tKDKLKTD02O/1WHHUMkatc9JgzV/PhbcvQOW/Pnw9FyQSzPIZ9EkEAkx/RvP/2TYD++6ij/uuoqywtCm4c2FAey4bwRlhQG0fj8Hbo8QLM0SXWoWP+qF9PUwBBI0/ND3L53sJisVsJ5Fqc2I2EfEInh67F+3nsGa6tsxkl2sfm6TCmURwDfQF9bPQO5n2HdHafkX6b/WeOL27fd70Hi4B1WLx9TuBlG9+Aae/sUwupxmuD1CKGg+YuUlFVriChqp1Q3/oYssq8TpXzraKY+WSeoHL9VQ+9TvcWnpQ+phQ6C1PwMAApnl0szY8mx9tRcv7LgWLLniRafThF8dyIsozeI5BRD4xInAoYsACCbKUJs5wkC5tIx9MXjorTOSlQhTj0+xvWb1Hch85HfwGJxlFOj1MwKUd+qJ+R81rrKvr/ah7rGJB4kan7ZY8PSBPHQ6Q8d7qMoOYaUdwgYH+ypYAKLLi8DRLsDF5mN9mrLqFu1f1Hga2imPlgVvqiCVdenGJ1Fw+2ZY8ueH3cI4aG1qEpkhhDXCsfyNR7/xfD+23zccNjJ5vPxuNo6cyowIGn1EZhW1f1wzrdGzpDa7O85joLURZlsWzLZsmG3ZYb9W8qHdz4jyO054LzNxrtsxiBOv9sXsSxLF+uoxbK4ZxZBHQOv3+uUVQYCADE3/OEeyyUaOeiKAQJgpHPBex7W2Roz0XsCc/Pmw5htfmkXvz0gQSABBiPJvPL5rlRcnXunDppoR9TRJhT1LwqYaL+yZQEfPHAwOC4CcEQkmmMgMInOUf5x1mPUs2pE0U9i++DaUb98zZaXZxYY9cDZ/CIKZHUnR8UuLt98/jMPP96svaQg6nWb8+rUCnP7KGuUH54kz5dFySf0gz1Q41m5GyQNPTEnQXGzYA1fzSQg0/tKsgrrHrqFuxzX1sCF45rUCNJwytkRNNwgA5OPgCH5rykzVzuYTOL9vK1zNJ8KOshiDso07YZHLPz1/1Lr2XmXT0zg0nMpG3sZb0HAqO2p+rienTTYqqCciAABB5hmup6KfMdty4Om5gJHe9qj5tXTdY9ew6cfG9SinW2zYUjcfR/+VrTk/15PXwcwiAWw5eZbowfbz+PqNp/DN4acMyzL28tsAnfm1tBE43WLDwy8U4+G6Yly+wkpCvfm5npwWIEcOAZADaFZpd/t5nN+3FR1H9xoQNPLKUoz5FV3mSP4XQjzzWgG21BXjs1Zb1HxcJ1+zzMLGZjW7mk/i3L6tcDWfTFrQKAsJWvOpOfwg5GTx8pE85D+4CEfkBl5rPs7JZ9azyCId+FrbfzDQ1giTLQuZC5bIlsRw9cwJDLWf15xHzUTAQ5PsWRpOZePxfUX4++eZgM48nA3kPFouScoRGNmQLjqnfA3KaxPfn2n67dqY11frL//SmVCGOd1iw6tHcvFpCyu39K7PtbFaXg1jT4pMSBftG+hDX+MxjF3rQ+aCigkdnen+x1sYamffPqN3fbW2Z4kTOijZ6TTj8X2FeOVIHjqdGVHX43pqNfvwV5rD03MBfY3HYMkvDp45iwVX80lc+uB19fC4+KzFBhA7hj8eXjmSh8f3FqHTqX+ui2NqMat28JMBS/58lDzwBOzla6LKM99ALzqO7oVbziiJYn31KN54vl+zJGs4lY1Xj+Sh0xn/yQCOqQHrWcJSjhbS1a4EjARgbKBXN0j07q9Az76+ehRlhaH/70XveIre/RVw+9TYKY9WKP8RmAwKM4dzqts5czaWeRnGwREnKF9YIUlh4ULElsq45prrSB2jDOOa65ms1Tx5O+XTivBA0r0r11ynuxbCDVDdkGuuuQ5BICIAAGfOnGOz3LNwcHCMh1BmAbF/ueaaa01NebRSZzVMzdzO7eltp3xhJfvMpNrGmTPnCA7LLBQWXVxzzbVa88zCmXOcLGcWDo7UhPJa1cNU2llm4eDgGBf/Bwq/oyXT7se2AAAAAElFTkSuQmCC" alt="GDG PCE logo">GDG <span style="font-weight:400">on Campus PCE</span></a><div class="nav-links" id="navLinks"><a href="#home">Home</a><a href="#events">Events</a><a href="#community">About</a><a href="#faq">FAQ</a><a href="#contact">Contact</a></div><div style="display:flex;align-items:center;gap:5px"><button class="theme-btn" id="themeBtn" aria-label="Toggle color theme"><i class="fa-solid fa-moon"></i></button><button class="menu-btn" id="menuBtn" aria-label="Open navigation" aria-expanded="false"><i class="fa-solid fa-bars"></i></button></div></nav></header>
+  <main>
+    <section class="hero"><canvas class="hero-particles" aria-hidden="true"></canvas><div class="blob one"></div><div class="blob two"></div><div class="container hero-grid"><div class="hero-copy"><div class="pill hero-load"><i class="fa-solid fa-sparkles"></i> GDG on Campus · Navi Mumbai</div><h1 class="hero-load"><span><span class="c-blue">Build.</span> <span class="c-red">Learn.</span></span><span class="c-green">Connect<span class="c-yellow">.</span></span></h1><p class="hero-text hero-load" id="typedText"></p><div class="actions hero-load"><a class="btn btn-primary" href="https://gdg.community.dev/gdg-on-campus-pillai-college-of-engineering-navi-mumbai-india/" target="_blank" rel="noopener">Join Our Chapter <i class="fa-solid fa-arrow-right"></i></a><a class="btn btn-secondary" href="#events">Explore Events</a></div><div class="hero-chips hero-load"><span><i class="fa-solid fa-bolt"></i> Learn together</span><span><i class="fa-solid fa-heart"></i> 1,713 members</span><span><i class="fa-solid fa-location-dot"></i> Pillai College, New Panvel</span></div></div></div></section>
+    <section class="section" id="community"><div class="container about-grid"><div class="about-art reveal" aria-hidden="true"><div class="code-window"><div class="dots"><b></b><b></b><b></b></div><div><span style="color:#4285f4">const</span> community = {</div><div>&nbsp;&nbsp;ideas: <span style="color:#ea4335">∞</span>,</div><div>&nbsp;&nbsp;friends: <span style="color:#34a853">true</span>,</div><div>&nbsp;&nbsp;possibility: <span style="color:#f09f00">"unlimited"</span></div><div>};</div></div></div><div class="reveal"><div class="eyebrow">Pillai College of Engineering</div><h2>What is GDG PCE?</h2><p style="color:var(--muted);line-height:1.75">GDG on Campus at PCE helps students develop technical skills through a peer-to-peer learning environment. Join workshops, webinars, hackathons, speaker sessions, and study jams—then apply what you learn to build solutions for the local community.</p><div class="benefits"><article class="benefit"><i class="fa-solid fa-people-group"></i><h3>Networking</h3><p>Connect with tech leaders and fellow innovators.</p></article><article class="benefit"><i class="fa-solid fa-laptop-code"></i><h3>Workshops</h3><p>Hands-on learning with current technology.</p></article><article class="benefit"><i class="fa-solid fa-trophy"></i><h3>Hackathons</h3><p>Build solutions alongside your peers.</p></article><article class="benefit"><i class="fa-solid fa-heart"></i><h3>Study Jams</h3><p>Learn, share, and grow together on campus.</p></article></div></div></div></section>
+    <section class="section tracks"><div class="container"><div class="section-head reveal"><div class="eyebrow">Find your focus</div><h2>Explore every edge of technology.</h2><p>Whether you’re shipping your first app or shaping the next platform, there’s a track made for your curiosity.</p></div><div class="tracks-grid"><article class="track reveal" style="--accent:#34a853"><div class="track-icon"><i class="fa-brands fa-android"></i></div><h3>Android</h3><p>Create meaningful mobile experiences for billions of people.</p></article><article class="track reveal" style="--accent:#4285f4"><div class="track-icon"><i class="fa-solid fa-globe"></i></div><h3>Web</h3><p>Build fast, accessible, beautiful experiences for the open web.</p></article><article class="track reveal" style="--accent:#ea4335"><div class="track-icon"><i class="fa-solid fa-cloud"></i></div><h3>Cloud</h3><p>Scale your ideas with modern cloud-native infrastructure.</p></article><article class="track reveal" style="--accent:#fbbc05"><div class="track-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div><h3>AI</h3><p>Bring intelligent, helpful experiences to life responsibly.</p></article><article class="track reveal" style="--accent:#4285f4"><div class="track-icon"><i class="fa-solid fa-mobile-screen-button"></i></div><h3>Flutter</h3><p>Craft delightful multi-platform apps from one codebase.</p></article><article class="track reveal" style="--accent:#fbbc05"><div class="track-icon"><i class="fa-solid fa-fire"></i></div><h3>Firebase</h3><p>Move from prototype to production with confidence.</p></article></div></div></section>
+    <section class="stats"><div class="container stats-grid"><div class="stat"><strong data-count="1714" data-suffix="">0</strong><span>Community members</span></div><div class="stat"><strong id="statEvents" data-count="26" data-suffix="+">0</strong><span>Events &amp; workshops</span></div><div class="stat"><strong data-count="4" data-suffix="+">0</strong><span>Ways to learn</span></div><div class="stat"><strong data-count="100" data-suffix="%">0</strong><span>Community driven</span></div></div></section>    <section class="section" id="faq"><div class="container"><div class="section-head reveal"><div class="eyebrow">Need to know</div><h2>Your questions, answered.</h2></div><div class="faq-wrap reveal"><div class="faq open"><button aria-expanded="true">Who can join a GDG community?<i class="fa-solid fa-plus"></i></button><div class="faq-answer"><p>Everyone. GDG is open to students, seasoned professionals, founders, career switchers, and curious people who want to learn with others.</p></div></div><div class="faq"><button aria-expanded="false">Do I need experience with Google technologies?<i class="fa-solid fa-plus"></i></button><div class="faq-answer"><p>Not at all. Our events span beginner-friendly introductions through advanced, hands-on technical sessions.</p></div></div><div class="faq"><button aria-expanded="false">Are GDG events free to attend?<i class="fa-solid fa-plus"></i></button><div class="faq-answer"><p>Most community events are free. Some larger experiences may have limited paid tickets to cover venue and catering costs.</p></div></div><div class="faq"><button aria-expanded="false">How can I become a speaker or volunteer?<i class="fa-solid fa-plus"></i></button><div class="faq-answer"><p>We love community-led programs. Reach out through our contact channels and tell us what you’d like to share or help make happen.</p></div></div></div></div></section>
+    <section class="section event-archive" id="events"><div class="container"><div class="section-head reveal"><div class="eyebrow">GDG PCE event archive</div><h2>Events organized by our community.</h2><p>From hands-on workshops and coding challenges to hackathons, study jams, and expert sessions—explore the completed GDG PCE experiences.</p></div><div class="archive-grid" id="archiveGrid" aria-live="polite"></div><div class="archive-actions"><span class="archive-count" id="archiveCount"></span><button class="btn btn-secondary" id="moreEvents" type="button">Show more events <i class="fa-solid fa-arrow-down"></i></button></div></div></section>
+  </main>
+  <footer id="contact"><div class="container"><div class="footer-grid"><div><a class="brand" href="#home"><span class="brand-mark" aria-hidden="true"></span>GDG <span style="font-weight:400">on Campus PCE</span></a><p class="footer-note">Pillai College of Engineering, New Panvel. Learn boldly, build openly, and make meaningful connections on campus.</p><div class="footer-social"><a href="https://gdg.community.dev/gdg-on-campus-pillai-college-of-engineering-navi-mumbai-india/" target="_blank" rel="noopener" aria-label="GDG PCE chapter"><i class="fa-solid fa-link"></i></a><a href="https://www.instagram.com/gdgpce" target="_blank" rel="noopener" aria-label="GDG PCE on Instagram"><i class="fa-brands fa-instagram"></i></a><a href="https://www.linkedin.com/company/gdgpce/" target="_blank" rel="noopener" aria-label="GDG PCE on LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a></div></div><div><h3 class="footer-title">Explore</h3><div class="footer-links"><a href="#events">Events</a><a href="#community">About GDG PCE</a><a href="#faq">FAQ</a></div></div><div><h3 class="footer-title">Stay in the loop</h3><div class="footer-links"><a href="https://gdg.community.dev/gdg-on-campus-pillai-college-of-engineering-navi-mumbai-india/" target="_blank" rel="noopener">Join our chapter</a><a href="mailto:gdgpce@mes.ac.in">gdgpce@mes.ac.in</a><a href="#contact">Become a volunteer</a><a href="#contact">Contact the team</a></div></div></div><div class="copyright"><span>© 2026 GDG on Campus PCE. Built with curiosity.</span><span>Google Developer Groups is a community program.</span></div></div></footer><button class="top" id="topBtn" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></button>
+  <!-- GDG Intro Animation Overlay -->
+  <div class="gdg-intro" id="gdgIntro" aria-hidden="true" role="presentation">
+    <div class="gdg-intro-bg">
+      <div class="ring"></div><div class="ring"></div><div class="ring"></div>
+    </div>
+    <div class="gdg-intro-content">
+      <div class="gdg-dots-ring" id="gdgDotsRing">
+        <div class="gdg-dot d-blue"  id="gdgDotB"></div>
+        <div class="gdg-dot d-red"   id="gdgDotR"></div>
+        <div class="gdg-dot d-yellow"id="gdgDotY"></div>
+        <div class="gdg-dot d-green" id="gdgDotG"></div>
+      </div>
+      <div class="gdg-wordmark" id="gdgWordmark">
+        <div class="gdg-wordmark-top">
+          <span class="w-blue">G</span><span class="w-red">D</span><span class="w-yellow">G</span>
+          <span style="color:rgba(255,255,255,.6);font-weight:400;font-size:1.4rem"> on Campus </span>
+          <span class="w-green">PCE</span>
+        </div>
+        <div class="gdg-wordmark-sub">Pillai College of Engineering · Navi Mumbai</div>
+        <div class="gdg-intro-bar" id="gdgBar"></div>
+      </div>
+    </div>
+  </div>
+  <div class="gdg-loader" id="gdgLoader" aria-hidden="true"><div class="gdg-loader-dots"><span></span><span></span><span></span><span></span></div><p>Loading events…</p></div>
+  <section class="events-page" id="eventsPage" aria-label="All GDG PCE events" aria-hidden="true"><div class="events-top"><div class="container events-top-inner"><a class="brand" href="#home" id="eventsBrand" aria-label="Back to GDG PCE home">GDG <span style="font-weight:400">on Campus PCE</span></a><button class="events-back" id="eventsBack" type="button"><i class="fa-solid fa-arrow-left"></i> Back to home</button></div></div><div class="container"><div class="events-hero"><div class="eyebrow">GDG PCE · Event archive</div><h1>Every event we’ve hosted.</h1><p>Workshops, hackathons, study jams, and speaker sessions organized by the GDG on Campus PCE community.</p><div class="events-filters" id="eventsFilters"></div><span class="archive-count" id="eventsPageCount"></span></div><div class="archive-grid" id="eventsPageGrid"></div></div></section>
+  <script>
+    /* ── GDG Intro Animation ──────────────────────────────────────── */
+    (function(){
+      const intro = document.getElementById('gdgIntro');
+      if (!intro) return;
+      const reduceM = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      // Skip if already played this session
+      if (sessionStorage.getItem('gdg-intro-done')) {
+        intro.classList.add('hide');
+        intro.style.display = 'none';
+        return;
+      }
+
+      if (reduceM) {
+        sessionStorage.setItem('gdg-intro-done', '1');
+        intro.classList.add('hide');
+        intro.style.display = 'none';
+        return;
+      }
+
+      document.body.style.overflow = 'hidden';
+
+      const dotB = document.getElementById('gdgDotB');
+      const dotR = document.getElementById('gdgDotR');
+      const dotY = document.getElementById('gdgDotY');
+      const dotG = document.getElementById('gdgDotG');
+      const wordmark = document.getElementById('gdgWordmark');
+      const bar = document.getElementById('gdgBar');
+      const ring = document.getElementById('gdgDotsRing');
+
+      function ease(t) { return t < 0.5 ? 2*t*t : -1+(4-2*t)*t; }
+      function easeOut(t) { return 1 - Math.pow(1-t, 3); }
+
+      function animateProp(el, from, to, dur, startT, prop, unit, cb) {
+        function tick(now) {
+          const p = Math.min((now - startT) / dur, 1);
+          const v = from + (to - from) * ease(p);
+          el.style[prop] = v + (unit||'');
+          if (p < 1) requestAnimationFrame(tick);
+          else if (cb) cb();
+        }
+        requestAnimationFrame(tick);
+      }
+
+      function popDot(el, delay, cb) {
+        setTimeout(() => {
+          el.style.opacity = '1';
+          let start = null;
+          function tick(now) {
+            if (!start) start = now;
+            const p = Math.min((now - start) / 420, 1);
+            const s = easeOut(p);
+            el.style.transform = `scale(${s})`;
+            if (p < 1) requestAnimationFrame(tick);
+            else if (cb) cb();
+          }
+          requestAnimationFrame(tick);
+        }, delay);
+      }
+
+      function animateWidth(el, toW, dur, startT, cb) {
+        function tick(now) {
+          const p = Math.min((now - startT) / dur, 1);
+          el.style.width = (toW * easeOut(p)) + 'px';
+          if (p < 1) requestAnimationFrame(tick);
+          else if (cb) cb();
+        }
+        requestAnimationFrame(tick);
+      }
+
+      // Sequence: dots pop in → orbit spin → wordmark fade → bar fill → exit
+      let seq = performance.now();
+
+      // 1. Pop in 4 dots staggered
+      popDot(dotB, 0);
+      popDot(dotR, 130);
+      popDot(dotY, 260);
+      popDot(dotG, 390, () => {
+        // 2. Spin the ring once
+        let spinStart = null;
+        function spinTick(now) {
+          if (!spinStart) spinStart = now;
+          const p = Math.min((now - spinStart) / 700, 1);
+          ring.style.transform = `rotate(${360 * easeOut(p)}deg)`;
+          if (p < 1) requestAnimationFrame(spinTick);
+          else {
+            ring.style.transform = 'rotate(360deg)';
+            // 3. Fade in wordmark
+            let wStart = null;
+            function wTick(now) {
+              if (!wStart) wStart = now;
+              const p = Math.min((now - wStart) / 480, 1);
+              wordmark.style.opacity = easeOut(p).toFixed(3);
+              wordmark.style.transform = `translateY(${12 * (1 - easeOut(p))}px)`;
+              if (p < 1) requestAnimationFrame(wTick);
+              else {
+                // 4. Grow progress bar
+                const barW = wordmark.offsetWidth || 260;
+                bar.style.width = '0';
+                let bStart = performance.now();
+                animateWidth(bar, barW, 800, bStart, () => {
+                  // 5. Hold, then exit
+                  setTimeout(() => {
+                    intro.classList.add('hide');
+                    document.body.style.overflow = '';
+                    sessionStorage.setItem('gdg-intro-done', '1');
+                    setTimeout(() => { intro.style.display = 'none'; }, 650);
+                  }, 400);
+                });
+              }
+            }
+            requestAnimationFrame(wTick);
+          }
+        }
+        requestAnimationFrame(spinTick);
+      });
+    })();
+    /* ── End GDG Intro Animation ─────────────────────────────────── */
+
+    const $ = s => document.querySelector(s), $$ = s => document.querySelectorAll(s);
+    const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const nav=$('.nav-wrap'), progress=$('.progress'), topBtn=$('#topBtn'), menu=$('#menuBtn'), links=$('#navLinks'), theme=$('#themeBtn');
+    addEventListener('scroll',()=>{const y=scrollY,d=document.documentElement.scrollHeight-innerHeight;progress.style.width=(y/d*100)+'%';nav.classList.toggle('scrolled',y>24);topBtn.classList.toggle('show',y>500)},{passive:true}); topBtn.onclick=()=>scrollTo({top:0,behavior:'smooth'});
+    menu.onclick=()=>{const open=links.classList.toggle('open');menu.setAttribute('aria-expanded',open);menu.innerHTML=`<i class="fa-solid fa-${open?'xmark':'bars'}"></i>`}; $$('#navLinks a').forEach(a=>a.onclick=()=>{links.classList.remove('open');menu.setAttribute('aria-expanded','false');menu.innerHTML='<i class="fa-solid fa-bars"></i>'});
+    const spy=[...$$('#navLinks a')].map(a=>({a,id:a.getAttribute('href')})).filter(o=>o.id&&o.id.startsWith('#'));
+    function setActive(){let best=null,bestTop=-Infinity;spy.forEach(({id})=>{const el=id==='#home'?document.querySelector('.hero'):document.querySelector(id);if(!el)return;const top=el.getBoundingClientRect().top-130;if(top<=0&&top>bestTop){bestTop=top;best=id;}});const sc=window.scrollY||document.documentElement.scrollTop||0,sh=document.documentElement.scrollHeight;if(sh-innerHeight>200&&innerHeight+sc>=sh-4)best='#contact';spy.forEach(({a,id})=>a.classList.toggle('active',id===(best||'#home')));}
+    addEventListener('scroll',setActive,{passive:true});setActive();
+    {const homeLink=$('#navLinks a[href="#home"]'),brandEl=$('.navbar .brand');if(homeLink)homeLink.addEventListener('click',e=>{e.preventDefault();scrollTo({top:0,behavior:reduceMotion?'auto':'smooth'});if(brandEl&&!reduceMotion){brandEl.classList.remove('brand-pop');void brandEl.offsetWidth;brandEl.classList.add('brand-pop');setTimeout(()=>brandEl.classList.remove('brand-pop'),600);}});}
+    const saved=localStorage.getItem('gdg-theme'); if(saved==='dark')document.documentElement.dataset.theme='dark'; const syncTheme=()=>theme.innerHTML=`<i class="fa-solid fa-${document.documentElement.dataset.theme==='dark'?'sun':'moon'}"></i>`; syncTheme(); theme.onclick=()=>{document.documentElement.dataset.theme=document.documentElement.dataset.theme==='dark'?'light':'dark';localStorage.setItem('gdg-theme',document.documentElement.dataset.theme);syncTheme()};
+    $$('.btn').forEach(b=>b.addEventListener('click',e=>{const r=b.getBoundingClientRect(),s=document.createElement('span');s.className='ripple';s.style.cssText=`width:80px;height:80px;left:${e.clientX-r.left-40}px;top:${e.clientY-r.top-40}px`;b.append(s);setTimeout(()=>s.remove(),650)}));
+    if('IntersectionObserver'in window){const reveal=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.style.opacity=1;e.target.style.transform='none';e.target.style.transition='opacity .65s ease,transform .65s cubic-bezier(.2,.7,.2,1)';reveal.unobserve(e.target)}}),{threshold:.12});$$('.reveal').forEach(el=>reveal.observe(el))}else{$$('.reveal').forEach(el=>{el.style.opacity=1;el.style.transform='none'})}
+    let counted=false;const statObs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting&&!counted){counted=true;$$('[data-count]').forEach(x=>{let end=+x.dataset.count,start=performance.now();function tick(t){let p=Math.min((t-start)/1450,1);x.textContent=Math.floor(end*(1-Math.pow(1-p,3))).toLocaleString()+x.dataset.suffix;if(p<1)requestAnimationFrame(tick)}requestAnimationFrame(tick)})}}),{threshold:.45});statObs.observe($('.stats'));
+    $$('.faq button').forEach(b=>b.onclick=()=>{$$('.faq').forEach(f=>{let is=f.querySelector('button')===b,open=f.classList.contains('open');f.classList.toggle('open',is?!open:false);f.querySelector('button').setAttribute('aria-expanded',is?!open:false)})});
+    const events=[
+      ['Mar 5, 2026','IRON MAN: Stark Industries Bootcamp','A flagship three-day experience under The GDG Multiverse Series.','blob_oIMDru4'],
+      ['Feb 4, 2026','Competitive Coding Challenge: Unleash the Coder in You!','A competitive coding event designed to push problem-solving skills.','blob_wBys3al'],
+      ['Feb 2, 2026','RAG & Automation Workshop: Unleashing the Power of Automation','An immersive workshop on automation fundamentals and real-world use.','blob_BUtj6GP'],
+      ['Jan 25, 2026','Ethical Hacking Workshop: Alegria 2026','An introduction to the essentials of ethical hacking and cybersecurity.','blob_4X1dMh7'],
+      ['Jan 13, 2026',"Top 10 Teams Pitching Round — TechSprint AI Hack '25",'A showcase of student talent and innovation from TechSprint AI Hack ’25.','blob_n3Jaxch'],
+      ['Dec 22, 2025',"TechSprint AI Hack '25: Expert Mentoring & Deep Dive into Google Technologies",'A mentoring session exploring current Google technology advancements.','blob_0iUGvqy'],
+      ['Dec 17, 2025',"Info Session — TechSprint AI Hack '25",'The official introduction to the one-month online AI hackathon.','blob_RXTc8Cv'],
+      ['Oct 8, 2025','The GDG Multiverse Series: Doctor Strange — Time Loop Challenge','A challenge inviting participants to tackle the Multiverse Series adventure.','blob_xLo3tDU'],
+      ['Sep 25, 2025','Pixel2Prototype','A design-and-development showdown where creativity meets code.','blob_gRZoPqu'],
+      ['Sep 3, 2025','GDG Campus PCE: Info Session for 2025–26','An introduction to the academic-year chapter, opportunities, and community.','GDG_Bevy_DefaultEventThumbnail_2_va1kAS9.png'],
+      ['Mar 13, 2025','Debugging Marathon','A coding showdown where debugging skills meet strategic Tic-Tac-Toe battles.','Debug%20marathon%20%281%29_DyWl5Yn.png'],
+      ['Feb 13, 2025','GenAI Goodies Distribution Ceremony','A celebration and distribution ceremony for the GenAI community.','Screenshot%202025-02-13%20145348_0rnqaXM.png'],
+      ['Jan 25, 2025','GenAI Tech Workshop','An introduction to generative AI models, frameworks, techniques, and practical applications.','WhatsApp%20Image%202025-01-24%20at%2022.58.32_0b340e36_7WCRHiy.jpg'],
+      ['Jan 13, 2025','Introductory Session: Solutions Challenge 2025','Insights into challenge themes, timelines, prizes, mentorship, and submissions.','he_yV8zKqA.jpg'],
+      ['Jan 6, 2025','Solutions Challenge 2025 Registration Walkthrough','A practical guide to registration, networking, and building solutions for the UN SDGs.','WhatsApp%20Image%202025-01-05%20at%2021.25.42_4baaf7b3_0oYVVMU.jpg'],
+      ['Dec 24, 2024','Tech Winter Break: Flutter Workshop','A two-day interactive Flutter workshop for cross-platform app development.','Flutter_FHFRcgI.png'],
+      ['Dec 17, 2024','Tech Winter Break: Android Dev Workshop','A beginner-friendly two-day Android Studio and Kotlin app-development workshop.','Android_Vymu04M.png'],
+      ['Dec 12, 2024','Tech Winter Break: Web Dev Workshop','A two-day launchpad for starting a web-development journey.','WEB%20DEV_mpp2zXx.png'],
+      ['Dec 7, 2024','Tech Winter Break GDGPCE: Info Session','An overview of skills, collaboration, mentorship, and the Solution Challenge Hackathon.','tech%20winter%20break%20infosession_rZHgojc.png'],
+      ['Dec 6, 2024','Tech Winter Break: Web Development Pathway','The first hands-on training session of the Tech Winter Break campaign.','we_8cCx1Vd.png'],
+      ['Nov 23, 2024','Google STEP Made Simple: Your Preparation Blueprint','A preparation session for the Google STEP Internship.','step%20intern%20collab%20nexuss_4xBlJb9.png'],
+      ['Oct 14, 2024','Gen AI Study Jams: Info Session','Tips for getting started with Generative AI labs and earning skill badges.','WhatsApp%20Image%202024-10-14%20at%2016.51.13_c6fd0d26_nKQb4Sf.jpg'],
+      ['Oct 6, 2024','Hacktoberfest Info Session','A guide to meaningful open-source contributions, collaboration, and community.','thumbnail1_63GCGqq.png'],
+      ['Oct 1, 2024','Dev Insights','An expert seminar on advanced coding methodologies and career growth strategies.','WhatsApp%20Image%202024-09-25%20at%2010.51.09%20PM_wP0qp9c.jpeg'],
+      ['Sep 21, 2024','Death by AI','A prompt-engineering survival challenge that tests creativity and quick thinking.','deathbyai_mEIRbKo.jpeg'],
+      ['Sep 20, 2024','Code Hunt','A DSA problem-solving challenge with a competitive twist.','codehunt_vBiLAR4.jpeg']
+    ];
+    const cdn='https://res.cloudinary.com/startup-grind/image/upload/c_fill,dpr_2.0,f_auto,g_center,q_auto:good/v1/gcs/platform-data-goog/';const eventCard=([date,title,desc,image],i)=>`<article class="archive-card reveal" style="--accent:${['#4285f4','#ea4335','#fbbc05','#34a853'][i%4]};opacity:1;transform:none"><div class="archive-thumb"><img src="${cdn}${image.includes('GDG_Bevy')?'contentbuilder/':'events/'}${image}" alt="${title} event artwork" loading="lazy"><span class="archive-date"><i class="fa-regular fa-calendar"></i>${date}</span></div><div class="archive-body"><span class="archive-tag"><i class="fa-solid fa-circle-check"></i> Completed</span><h3>${title}</h3><p>${desc}</p><a class="event-link" href="https://gdgpce.vercel.app/events" target="_blank" rel="noopener">View event details <i class="fa-solid fa-arrow-right"></i></a></div></article>`;
+    function drawEvents(){const grid=$('#archiveGrid');if(!grid)return;grid.innerHTML=events.slice(0,6).map(eventCard).join('');$('#archiveCount').textContent=`A glimpse of our ${events.length} completed events`;const more=$('#moreEvents');more.hidden=false;more.innerHTML=`View all ${events.length} events <i class="fa-solid fa-arrow-right"></i>`;more.onclick=openEvents;}drawEvents();const _es=$('#statEvents');if(_es){_es.dataset.count=events.length;_es.textContent=events.length+'+';}
+    let activeYear='all',evBusy=false;const loader=$('#gdgLoader'),eventsPage=$('#eventsPage');
+    function renderEventsPage(){const grid=$('#eventsPageGrid');if(!grid)return;const list=events.map((ev,i)=>[ev,i]).filter(([[d]])=>activeYear==='all'||d.endsWith(activeYear));grid.innerHTML=list.map(([ev,i])=>eventCard(ev,i)).join('');const c=$('#eventsPageCount');if(c)c.textContent=`${list.length} event${list.length!==1?'s':''}${activeYear!=='all'?' in '+activeYear:''}`;}
+    function buildFilters(){const wrap=$('#eventsFilters');if(!wrap)return;const years=[...new Set(events.map(([d])=>d.slice(-4)))].sort((a,b)=>b-a);wrap.innerHTML=['all',...years].map(y=>`<button class="filter-chip${y===activeYear?' active':''}" data-year="${y}" type="button">${y==='all'?'All events':y}</button>`).join('');wrap.querySelectorAll('.filter-chip').forEach(b=>b.onclick=()=>{activeYear=b.dataset.year;wrap.querySelectorAll('.filter-chip').forEach(x=>x.classList.toggle('active',x===b));renderEventsPage();});}
+    function openEvents(){if(!eventsPage||evBusy||eventsPage.classList.contains('show'))return;evBusy=true;history.pushState({gdgEvents:1},'');buildFilters();if(loader)loader.classList.add('show');document.body.style.overflow='hidden';setTimeout(()=>{renderEventsPage();eventsPage.classList.add('show');eventsPage.setAttribute('aria-hidden','false');eventsPage.scrollTo(0,0);setTimeout(()=>{if(loader)loader.classList.remove('show');evBusy=false;},reduceMotion?0:260);},reduceMotion?150:1150);}
+    function closeEvents(){if(!eventsPage)return;eventsPage.classList.remove('show');eventsPage.setAttribute('aria-hidden','true');if(loader)loader.classList.remove('show');document.body.style.overflow='';evBusy=false;}
+    addEventListener('popstate',()=>{if(eventsPage&&eventsPage.classList.contains('show'))closeEvents();});
+    $$('a[href="#events"]').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();links.classList.remove('open');menu.setAttribute('aria-expanded','false');menu.innerHTML='<i class="fa-solid fa-bars"></i>';openEvents();}));
+    {const eb=$('#eventsBack'),ebr=$('#eventsBrand');if(eb)eb.onclick=()=>history.back();if(ebr)ebr.onclick=e=>{e.preventDefault();history.back();};}    const text='Join us to learn, grow, and connect with technical minds at Pillai College of Engineering—then unleash your talent.';let ti=0;function type(){if(reduceMotion){$('#typedText').textContent=text;return}if(ti<text.length){$('#typedText').textContent+=text[ti++];setTimeout(type,17)}}
+    addEventListener('load',()=>{if(window.anime&&!reduceMotion){anime.timeline({easing:'easeOutExpo'}).add({targets:'.hero-load',opacity:[0,1],translateY:[24,0],delay:anime.stagger(105),duration:760}).add({targets:'.blob',scale:[.85,1],opacity:[0,.8],duration:900},'-=850');anime({targets:'.blob',borderRadius:['48% 52% 42% 58% / 58% 42% 58% 42%','58% 42% 58% 42% / 48% 52% 42% 58%'],direction:'alternate',loop:true,easing:'easeInOutSine',duration:6000});anime({targets:'.floating',translateY:[-5,6],direction:'alternate',loop:true,easing:'easeInOutSine',duration:1800,delay:anime.stagger(450)})}type()});
+    (function(){
+      const hero=$('.hero'),canvas=$('.hero-particles');
+      if(!hero||!canvas||!canvas.getContext)return;
+      const ctx=canvas.getContext('2d'),colors=['#4285f4','#ea4335','#fbbc05','#34a853'];
+      const LINK=132,POINTER_R=175;
+      let w=0,h=0,dpr=1,particles=[],raf=0,running=false;
+      const pointer={x:0,y:0,active:false};
+      function size(){
+        dpr=Math.min(devicePixelRatio||1,2);
+        const r=hero.getBoundingClientRect();w=r.width;h=r.height;
+        canvas.width=w*dpr;canvas.height=h*dpr;
+        canvas.style.width=w+'px';canvas.style.height=h+'px';
+        ctx.setTransform(dpr,0,0,dpr,0,0);
+      }
+      function build(){
+        const count=Math.max(24,Math.min(80,Math.round(w*h/16000)));
+        particles=Array.from({length:count},()=>({
+          x:Math.random()*w,y:Math.random()*h,
+          vx:(Math.random()-.5)*.4,vy:(Math.random()-.5)*.4,
+          r:Math.random()*2+1.3,c:colors[Math.floor(Math.random()*colors.length)]
+        }));
+      }
+      function step(){
+        for(const p of particles){
+          p.x+=p.vx;p.y+=p.vy;
+          if(p.x<=0||p.x>=w)p.vx*=-1;
+          if(p.y<=0||p.y>=h)p.vy*=-1;
+          p.x=Math.max(0,Math.min(w,p.x));p.y=Math.max(0,Math.min(h,p.y));
+          if(pointer.active){
+            const dx=p.x-pointer.x,dy=p.y-pointer.y,d=Math.hypot(dx,dy);
+            if(d>0&&d<POINTER_R){const f=(POINTER_R-d)/POINTER_R;p.x+=dx/d*f*3.4;p.y+=dy/d*f*3.4;}
+          }
+        }
+      }
+      function render(){
+        ctx.clearRect(0,0,w,h);
+        for(let i=0;i<particles.length;i++){
+          const a=particles[i];
+          for(let j=i+1;j<particles.length;j++){
+            const b=particles[j],dx=a.x-b.x,dy=a.y-b.y,d=Math.hypot(dx,dy);
+            if(d<LINK){ctx.globalAlpha=(1-d/LINK)*.26;ctx.strokeStyle=a.c;ctx.lineWidth=1;ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);ctx.stroke();}
+          }
+          if(pointer.active){
+            const dx=a.x-pointer.x,dy=a.y-pointer.y,d=Math.hypot(dx,dy);
+            if(d<POINTER_R){ctx.globalAlpha=(1-d/POINTER_R)*.5;ctx.strokeStyle=a.c;ctx.lineWidth=1;ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(pointer.x,pointer.y);ctx.stroke();}
+          }
+        }
+        ctx.globalAlpha=1;
+        for(const p of particles){ctx.beginPath();ctx.fillStyle=p.c;ctx.arc(p.x,p.y,p.r,0,6.283);ctx.fill();}
+      }
+      function loop(){step();render();raf=requestAnimationFrame(loop);}
+      function start(){if(!running&&!reduceMotion){running=true;loop();}}
+      function stop(){running=false;cancelAnimationFrame(raf);}
+      hero.addEventListener('pointermove',e=>{const r=hero.getBoundingClientRect();pointer.x=e.clientX-r.left;pointer.y=e.clientY-r.top;pointer.active=true;});
+      hero.addEventListener('pointerleave',()=>{pointer.active=false;});
+      let rt;addEventListener('resize',()=>{clearTimeout(rt);rt=setTimeout(()=>{size();build();if(reduceMotion)render();},150);},{passive:true});
+      addEventListener('load',()=>{size();build();if(reduceMotion)render();});
+      document.addEventListener('visibilitychange',()=>document.hidden?stop():start());
+      size();build();
+      if(reduceMotion){render();return;}
+      if('IntersectionObserver'in window){new IntersectionObserver(es=>es.forEach(e=>e.isIntersecting?start():stop()),{threshold:0}).observe(hero);}
+      else start();
+    })();
+  </script>
+</body>
+</html>
