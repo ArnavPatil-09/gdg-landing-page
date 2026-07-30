@@ -60,13 +60,13 @@ The goal of this project was to create a visually appealing, responsive, and int
 Clone the repository
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/YOUR_REPOSITORY.git
+git clone https://github.com/ArnavPatil-09/gdg-landing-page.git
 ```
 
 Open the project
 
 ```bash
-cd YOUR_REPOSITORY
+cd gdg-landing-page
 ```
 
 Run
@@ -103,7 +103,10 @@ The website is optimized for:
 
 ## 🌐 Live Demo
 
-https://arnavpatil-09.github.io/gdg-landing-page/
+**Vercel:** https://gdg-landing-page-seven.vercel.app/
+
+**GitHub Pages:** https://arnavpatil-09.github.io/gdg-landing-page/
+
 ---
 
 ## 👨‍💻 Author
